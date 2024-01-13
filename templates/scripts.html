@@ -1,12 +1,40 @@
 {% load static %}
 
-<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' }"></script>
-<script type="text/javascript" src="{% static 'js/popper.min.js' }"></script>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' }"></script>
-<script type="text/javascript" src="{% static 'js/mdb.min.js' }"></script>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
 
 <script type="text/javascript">
-    $(function () {
-        $('$mdb-lightbox-ui').load('static/mdb-addons/mdb-lightbox-uihtml');
+  $(function () {
+    $('$mdb-lighbox-ui').load("static/mdb-addons/mdb-lightbox-uihtml");
+
+  });
+</script>
+
+<script type="text/javascript">
+  $('body').scrollspy({
+    target: '.dotted-scrollspy'
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Obtener el formulario
+    var form = document.querySelector('#contactForm');
+
+    // Agregar un escucha para el evento de envío del formulario
+    form.addEventListener('submit', function (event) {
+      // Prevenir la recarga de la página por defecto al enviar el formulario
+      event.preventDefault();
+
+      // Mostrar un mensaje de confirmación
+      alert('Message sent successfully. Thank you for contacting me!');
     });
+  });
 </script>

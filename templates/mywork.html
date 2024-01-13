@@ -1,32 +1,57 @@
+<style>
+  .img-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .img-container img {
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .img-container:hover img {
+    transform: scale(1.1);
+  }
+
+  .img-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    filter: blur(4px);
+  }
+
+  .img-container:hover::before {
+    opacity: 1;
+  }
+</style>
+
 <section class="section" id="mywork">
-    <h1 class="section-heading text-center mb-5 mt-4 black-text wow fadeIn" data-wow-delay="0.2s">My Work</h1>
-  
-    <div class="row wow FadeIn" data-wow-delay="0.4s">
-      <div class="col-md-12">
-        <div id="mdb-lightbox-ui">
-          <div class="mdb-lightbox">
-            {% for img in images %}
-                  {% if img.image %}
-            <figure class="col-md-4">
-              <img src="{{img.image.url}}" alt="{{img.alt}}"
-              style="min-height:300px;
-              max-height:300px;
-              min-width:500px;
-              max-width:500px;">
-            </figure>
-            {% elif img.link %}
-              <figure class="col-md-4">
-                <img src="{{img.link}}" alt="{{img.alt}}"
-                style="min-height:300px;
-                max-height:300px;
-                min-width:500px;
-                max-width:500px;">
+  <h1 class="section-heading text-center mb-5 mt-4 black-text wow fadeIn" data-wow-delay="0.2s">My Work</h1>
+
+  <div class="row wow fadeIn" data-wow-delay="0.4s">
+    <div class="col-md-12">
+      <div id="mdb-lightbox-ui">
+        <div class="mdb-lightbox">
+          {% for img in images %}
+            {% if img.image %}
+              <figure class="col-md-4 img-container">
+                <img src="{{img.image.url}}" alt="{{img.alt}}" class="img-fluid rounded"
+                  style="min-height:300px; max-height:300px; min-width:425px; max-width:425px;">
               </figure>
-                  {% endif %}
-            {% endfor %}
-          </div>
+            {% elif img.link %}
+              <figure class="col-md-4 img-container">
+                <img src="{{img.link}}" alt="{{img.alt}}" class="img-fluid rounded"
+                  style="min-height:300px; max-height:300px; min-width:400px; max-width:400px;">
+              </figure>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
-  </section>
-  
+  </div>
+</section>
