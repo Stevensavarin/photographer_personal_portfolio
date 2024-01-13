@@ -5,23 +5,34 @@
 
 {% include "head.html" %}
 {% include "header.html" %}
-
 <body>
 
-<main>
+  <!-- Start your project here-->
+  <main>
     <div class="container-fluid mt-5 pt-5">
-        {% include "mywork.html" %}
+    {% include "mywork.html" %}
     </div>
-</main>
 
-<div class="container">
-    {% include "about.html" %}
-
-    {% include "contact.html" %}
+  <!-- /Start your project here-->
+<div class="container" id="about">
+  {% include "about.html" %}
+<hr class="between-sections">
+  {% include "contact.html" %}
 </div>
 
 
-{% include "scripts.html" %}
+  </main>
+{% include "footer.html" %}
 
+  <div class="dotted-scrollspy clearfix d-none d-sm-block">
+    <ul class="nav smooth-scroll flex-column">
+      <li class="nav-item"><a class="nav-link" href="#mywork"><span></span></a></li>
+      <li class="nav-item"><a class="nav-link" href="#about"><span></span></a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact"><span></span></a></li>
+    </ul>
+  </div>
+
+  {% include "scripts.html" %}
 </body>
+
 </html>
