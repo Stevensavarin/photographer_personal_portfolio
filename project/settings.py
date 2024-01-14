@@ -3,6 +3,7 @@ from pathlib import Path
 import django_heroku
 
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()

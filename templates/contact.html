@@ -65,22 +65,3 @@
   </div>
   <!--Grid row-->
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Obtener el formulario
-    var form = document.querySelector('#contactForm');
-
-    // Agregar un escucha para el evento de envío del formulario
-    form.addEventListener('submit', function (event) {
-      // Prevenir la recarga de la página por defecto al enviar el formulario
-      event.preventDefault();
-
-      // Mostrar un mensaje de confirmación
-      alert('Message sent successfully. Thank you for contacting me!');
-
-      // Vaciar el formulario
-      form.reset();
-    });
-  });
-</script>
