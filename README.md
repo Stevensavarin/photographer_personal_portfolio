@@ -9,37 +9,46 @@ Este es un proyecto de portafolio personal para fotógrafos, diseñado para exhi
 - **Sección de biografía:** Comparte tu historia y experiencia como fotógrafo para conectarte con tu audiencia.
 - **Diseño receptivo:** Garantiza que tu portafolio se vea impresionante en dispositivos de todos los tamaños.
 
+## Uso de Bootstrap
+
+Este proyecto utiliza Bootstrap, un marco de diseño de código abierto que agiliza el desarrollo web. Bootstrap proporciona estilos predefinidos y componentes que facilitan la creación de interfaces modernas y receptivas.
+
 ## Configuración del Proyecto
 
-### Requisitos:
+Requisitos:
 
 - Python
 - Django
 
-### Instalación:
+Instalación:
 
 ```bash
 pip install -r requirements.txt
+```
 
+```bash
 python manage.py migrate
+```
 
+```bash
 python manage.py runserver
+```
 
 Visita http://localhost:8000 en tu navegador.
 
 Personalización
 
-Contenido:
+## Contenido:
 Modifica la galería de imágenes en el modelo Images en portfolio/models.py.
 Personaliza la información biográfica en la vista home en portfolio/views.py.
 
-Estilos y Plantillas:
+## Estilos y Plantillas:
 Personaliza los estilos en los archivos CSS en la carpeta static/css.
 Modifica las plantillas HTML en la carpeta templates.
 
-Configuración del Correo Electrónico:
+## Configuración del Correo Electrónico:
 Configura las variables de entorno para el correo electrónico en tu entorno de desarrollo.
 
-Contribuciones
+## Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes ideas para mejoras o encuentras problemas, no dudes en abrir un problema o enviar una solicitud de extracción.
 
