@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Images
 from django.core.mail import EmailMessage
+from django.utils.encoding import smart_text
+from .models import Images
+import base64
 
 def home(request):
     context = {}
@@ -13,14 +15,22 @@ def home(request):
         subject = request.POST.get("subject")
         message = request.POST.get("message")
 
-        # print(name + "\n" + email + "\n" + subject + "\n" + message)
+        email_host_password = 'pyfd yleb wubu wnfr'
+        encoded_password = base64.b64encode(email_host_password.encode('utf-8')).decode('utf-8')
 
         email_message = EmailMessage(
-            subject = name + " : " + subject,
-            body = message,
-            to = ["sawarinsteven@gmail.com"],
-            headers = {"Reply-To": email}
+            subject=smart_text(name + " : " + subject),
+            body=smart_text(message),
+            to=["sawarinsteven@gmail.com"],
+            headers={"Reply-To": smart_text(email)}
         )
-        email_message.send()
+
+        email_message.connection = (email_message.connection or {}).copy()
+        email_message.connection['password'] = encoded_password
+
+        try:
+            email_message.send()
+        except Exception as e:
+            print(f"Error al enviar el correo electrónico: {e}")
 
     return render(request, "index.html", context)
