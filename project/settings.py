@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import django_heroku
+
 import os
 from dotenv import load_dotenv
 
@@ -9,11 +11,12 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+django_heroku.settings(locals())
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9cvg5-&^&i+u$*oc+@422=4(0cm=-g1wa+e6z7^yfyp)1te0j_'
+SECRET_KEY = os.environ.get("KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
